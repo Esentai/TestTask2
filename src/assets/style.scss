@@ -1,0 +1,110 @@
+$bg-color: #f5f5f5;
+$red: #AA2525;
+$white: #FFF;
+$yellow: #AAAA25;
+$green: #45AA25;
+$blue: #2525AA;
+
+@mixin center-align {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+body {
+  @include center-align();
+  background: $bg-color;
+  font-family: 'Lato';
+  font-weight: 900;
+  font-size: 1.4em;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.game {
+  align-content: space-around;
+  background: darken($bg-color, 8%);
+  border-radius: 3%;
+  display: flex;
+  flex-wrap: wrap;
+  height: 0;
+  justify-content: space-around;
+  width: 0;
+  .start {
+    @include center-align();
+    font-size: 21px;
+    align-content: center;
+    flex-wrap: wrap;
+    background: $white;
+    border: 20px solid darken($bg-color, 5%);
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    height: 100px;
+    left: 50%;
+    top: 113px;
+    user-select: none;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    span {
+      font-size: .7em;
+    }
+  }
+  .square {
+    cursor: pointer;
+    height: 40%;
+    width: 40%;
+    &:nth-of-type(1) {
+      background: $green;
+      &.lit {
+        background: lighten($green, 25%);
+      }
+    }
+    &:nth-of-type(2) {
+      background: $red;
+      &.lit {
+        background: lighten($red, 25%);
+      }
+    }
+    &:nth-of-type(3) {
+      background: $yellow;
+      &.lit {
+        background: lighten($yellow, 25%);
+      }
+    }
+    &:nth-of-type(4) {
+      background: $blue;
+      &.lit {
+        background: lighten($blue, 25%);
+      }
+    }
+  }
+}
+
+.fullSize {
+  height: 325px;
+  width: 325px;
+}
+.complexityBtns{
+  text-align: center;
+  > button{
+    width: 85px;
+    height: 25px;
+    margin: 10px 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #5A6268;
+    color: #fff;
+    cursor: pointer;
+    &:focus{
+      outline: none;
+    }
+    &:hover{
+      opacity: 0.9;
+    }
+    &.active{
+      background-color: #0069D9;
+    }
+  }
+
+}
